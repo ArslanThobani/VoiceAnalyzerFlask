@@ -7,26 +7,15 @@
 
 	<title>Live input record and playback</title>
   <style type='text/css'>
-    ul { list-style: none; }
-    #recordingslist audio { display: block; margin-bottom: 10px; }
+
   </style>
 </head>
 <body>
 
-  <h1>Recorder.js simple WAV export example</h1>
-
-  <p>Make sure you are using a recent version of Google Chrome.</p>
-  <p>Also before you enable microphone input either plug in headphones or turn the volume down if you want to avoid ear splitting feedback!</p>
-
-  <button onclick="startRecording(this);">record</button>
+  <!-- <button onclick="startRecording(this);">record</button>
   <button onclick="stopRecording(this);" disabled>stop</button>
-  <button onclick="start(this);">Start</button>
-  
-  <h2>Recordings</h2>
-  <ul id="recordingslist"></ul>
-  
-  <h2>Log</h2>
-  <pre id="log"></pre>
+  <button onclick="start(this);">Start</button> -->
+
 
   <script>
   function __log(e, data) {
@@ -91,21 +80,21 @@
             }
       });
       console.log(blob);
-      var url = URL.createObjectURL(blob);
-      var li = document.createElement('li');
-      var au = document.createElement('audio');
-      var hf = document.createElement('a');
-      // wsh.send()
-      au.controls = true;
-      au.src = url;
-      console.log(au.src);
-      hf.href = url;
-      hf.download = new Date().toISOString() + '.wav';
-      // wsh.send(hf.download);
-      hf.innerHTML = hf.download;
-      li.appendChild(au);
-      li.appendChild(hf);
-      recordingslist.appendChild(li);
+      // var url = URL.createObjectURL(blob);
+      // var li = document.createElement('li');
+      // var au = document.createElement('audio');
+      // var hf = document.createElement('a');
+      // // wsh.send()
+      // au.controls = true;
+      // au.src = url;
+      // console.log(au.src);
+      // hf.href = url;
+      // hf.download = new Date().toISOString() + '.wav';
+      // // wsh.send(hf.download);
+      // hf.innerHTML = hf.download;
+      // li.appendChild(au);
+      // li.appendChild(hf);
+      // recordingslist.appendChild(li);
     });
   }
   function start(button) {
