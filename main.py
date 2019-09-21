@@ -28,7 +28,7 @@ def home():
         conf, nonconf = analyze( filename)
         print("Confidence ............ " + str(conf))
 #        os.remove(filename)
-        return conf
+        return str(conf)
     return "Not POST"
 
 @app.route('/uploadfile',methods=['GET','POST'])
