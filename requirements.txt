@@ -1,0 +1,8 @@
+numpy
+pandas
+SoundFile
+pyAudioAnalysis
+librosa
+eyed3
+pydub
+matplotlib
