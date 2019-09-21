@@ -7,9 +7,7 @@ This is a temporary script file.
 import os
 import flask
 from flask import request
-import wave
 import pickle
-import time
 import uuid
 app = flask.Flask(__name__)
 app.config["DEBUG"] = True
