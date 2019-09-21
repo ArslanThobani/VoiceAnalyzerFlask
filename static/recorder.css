@@ -1,0 +1,214 @@
+
+body, html, .container-fluid { /// take all available height
+  height: 100%;
+}
+
+#record {
+	width: 60px;
+	height: 60px;
+	background-color: red;
+	border: 0;
+	border-radius: 35px;
+	margin: 18px;
+	outline: none;
+	color:#ffffff;
+	font-size: 30px; 
+}
+
+#operation {
+	width: 100px;
+	height: 60px;
+	border: 0;
+	border-radius: 6px;
+	margin: 18px;
+	outline: none;
+	color:#000000;
+	font-size: 30px; 
+}
+
+.notRec{
+	background-color: #d63e3e;
+}
+
+.Rec{
+	animation-name: pulse;
+	animation-duration: 1.5s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+}
+
+@keyframes pulse{
+	0%{
+		box-shadow: 0px 0px 5px 0px rgba(173,0,0,.3);
+	}
+	65%{
+		box-shadow: 0px 0px 5px 13px rgba(173,0,0,.3);
+	}
+	90%{
+		box-shadow: 0px 0px 5px 13px rgba(173,0,0,0);
+	}
+}
+
+.jumbotron {
+  padding-top: 3rem;
+ - padding-bottom: 3rem;
+  margin-bottom: 0;
+  background-color: #fff;
+}
+@media (min-width: 768px) {
+.jumbotron {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+
+.jumbotron p:last-child {
+  margin-bottom: 0;
+}
+
+.jumbotron-heading {
+  font-weight: 300;
+}
+
+.jumbotron .container {
+  max-width: 40rem;
+}
+
+footer {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  background-color  :#E6E6E6;
+}
+
+.footer{
+	background-color  :#E6E6E6;
+	width:100%;
+}
+
+
+footer p {
+  margin-bottom: .3rem;
+  width:100%;
+  
+}
+
+.navbar{
+	background-color: #0091DA;
+}
+
+#navbarHeader{
+	background-color: #0091DA;
+}
+
+.navbar-toggler{
+}
+
+.app-logo{
+	margin-top: 10px;
+}
+
+.main-component{
+
+}
+.inner-component{
+	margin-top: -50px;
+}
+
+
+
+/* Button used to open the contact form - fixed at the bottom of the page */
+.open-button {
+ background-color: #555;
+ color: white;
+ padding: 16px 20px;
+ border: none;
+ cursor: pointer;
+ opacity: 0.8;
+ position: fixed;
+ bottom: 23px;
+ right: 28px;
+ width: 280px;
+}
+/* The popup form - hidden by default */
+.form-popup {
+ display: none;
+ position: fixed;
+ left: 50%; margin-left:-200px;
+ border: 0px solid #f1f1f1;
+ z-index: 99;
+}
+/* Add styles to the form container */
+.form-container {
+ border: 3px solid #f1f1f1;
+ max-width: 300px;
+ height: 100%;
+ padding: 2px;
+ background-color: white;
+}
+/* Full-width input fields */
+.form-container input[type=text], .form-container input[type=password] {
+ width: 80%;
+ padding: 18px;
+ margin: auto;
+ border: none;
+ background: #f1f1f1;
+}
+/* When the inputs get focus, do something */
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+ background-color: #ddd;
+ outline: none;
+}
+/* Set a style for the submit/login button */
+.form-container .btn {
+ background-color: #4CAF50;
+ color: white;
+ padding: 16px 20px;
+ border: none;
+ cursor: pointer;
+ width: 100%;
+ opacity: 0.8;
+}
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+ background-color: red;
+}
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+ opacity: 1;
+}
+
+#file-logo-operation{
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.uploadFile{
+	width: 55px;
+	height: 55px;
+	background-color: #787878;
+	border: 0;
+	border-radius: 10px;
+	margin: 18px;
+	outline: none;
+	color:#ffffff;
+	font-size: 30px; }
+.resetEverything{
+	width: 55px;
+	height: 55px;
+	background-color: #787878;
+	border: 0;
+	border-radius: 10px;
+	margin: 18px;
+	outline: none;
+	color:#ffffff;
+	font-size: 30px; }
+.my-upload-button{
+	background: #787878;
+}
+
+#uploadOperation{
+	font-size: 45px;
+	padding: 40px;
+	margin-bottom: 20px;
+	margin-bottom: 20px;
+}

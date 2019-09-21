@@ -7,6 +7,7 @@ This is a temporary script file.
 import os
 import flask
 from flask import request
+from flask import jsonify, make_response
 import pickle
 import uuid
 app = flask.Flask(__name__)
@@ -28,16 +29,24 @@ def home():
         conf, nonconf = analyze( filename)
         print("Confidence ............ " + str(conf))
 #        os.remove(filename)
-        return str(conf)
+        return make_response(jsonify({"confidence":float(conf)}), 200)
     return "Not POST"
 
 @app.route('/uploadfile',methods=['GET','POST'])
 def uploadfile():
     if request.method == 'POST':
-        f = request.files['file']
+        f = request.file['file']
         f.save(f.filename)
         return "success"
     
+@app.route('/upload',methods=['POST'])
+def upload():
+    f = request.files['file']
+    f.save(f.filename)
+    conf, nonconf = analyze(f.filename)
+    return str(conf)
+    
+
 def analyze(filename):
     from confidence_prediction import test_example
     file_name =  filename
