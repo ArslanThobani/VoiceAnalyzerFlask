@@ -28,8 +28,8 @@ def home():
         print("file created")
         conf, nonconf = analyze( filename)
         print("Confidence ............ " + str(conf))
-#        os.remove(filename)
         return make_response(jsonify({"confidence":float(conf)}), 200)
+        os.remove(filename)
     return "Not POST"
 
 @app.route('/uploadfile',methods=['GET','POST'])
@@ -54,7 +54,7 @@ def not_found(error):
 def upload():
     f = request.files['file']
     f.save("static//"+f.filename)
-    conf, nonconf = analyze(f.filename)
+    conf, nonconf = analyze("static/"+f.filename)
     conf=5
     happy=20
     sad=22
