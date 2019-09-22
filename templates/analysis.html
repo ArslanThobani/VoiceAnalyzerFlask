@@ -7,7 +7,7 @@
     <script src=static/radialIndicator.js></script>
     <script src=static/chart-min.js></script>
     <script src="static/audio.min.js"></script>
-    <link rel="stylesheet" href="recorder.css">   
+    <link rel="stylesheet" href="static/recorder.css">   
   </head>
   <body>
   <header>
@@ -43,10 +43,8 @@
   </header>
     <main role="main" class="inner cover main-component">
       <div class="text-center app-logo ">
-        <img src='logo.png' width="80px" width="80px" />
-        
+        <img src='static/logo.png' width="80px" width="80px" />
       </div>
-
       <section class="jumbotron text-center custom-continer">
         <div><hr width="80%"></div>
         <div class="container" id="componentContent">
@@ -91,7 +89,7 @@
               </div>
             </div>
             <div class="row justify-content-center">
-                <audio src="http://kolber.github.io/audiojs/demos/mp3/juicy.mp3" preload="auto" />
+                <audio src="{{filePath}}" preload="auto" />
              </div>
         </div>
       </section>

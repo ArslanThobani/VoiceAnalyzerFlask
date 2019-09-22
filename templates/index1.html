@@ -4,13 +4,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src=smoothie.js></script>
     <script src=radialIndicator.js></script>
     <script src=chart-min.js></script>
     <link rel="stylesheet" href="recorder.css">   
-    
   </head>
-  <body >
+  <body>
   <header>
     <div class="collapse" id="navbarHeader">
       <div class="container">
@@ -44,7 +43,7 @@
   </header>
     <main role="main" class="inner cover main-component">
       <div class="text-center app-logo">
-        <img onclick="startRecordingMic()" src='logo.png' width="80px" width="80px" />
+        <img src='logo.png' width="80px" width="80px" />
         <hr width="80%">
       </div>
       <section class="jumbotron text-center">
@@ -58,23 +57,32 @@
                   </div>  
               </div>
               <div class="col-sm float-right">
-              
-                <div style="display: block;margin-top: 40px;"><canvas id="myLineChart"></canvas> </div>
+                <div><canvas id="myLineChart"></canvas> </div>
               </div>
             </div> 
             <div class="row">
               <div class="col-sm">
                 <div class="row justify-content-between">
-                <button onclick="resetEverything()" class="resetEverything"><i class="fa fa-undo"></i></button>
-                <button onclick="toggleRecord()" id="record"><i class="fa fa-microphone" aria-hidden="true"></i></button>
-                <button onclick="showUploadForm()" class="uploadFile"><i class="fa fa-cloud-upload"></i></button>
+<button onclick="resetEverything()" class="resetEverything"><i class="fa fa-undo"></i></button>
+                        <button onclick="toggleRecord()" id="record"><i class="fa fa-microphone" aria-hidden="true"></i></button>
+
+      <button onclick="showUploadForm()" class="uploadFile"><i class="fa fa-cloud-upload"></i></button>
+                 <!--  <div class="col-sm-2 col-md-2 col-xs-4">
+                  <button onclick="resetEverything()" class="resetEverything"><i class="fas fa-cloud-upload-alt"></i></button>
+                  </div>
+                  <div class="col-sm-4 col-md-4 col-xs-4">
+                  <button onclick="toggleRecord()" id="record"><i class="fa fa-microphone" aria-hidden="true"></i></button>
+                </div>
+                <div class="col-sm-2 col-md-2 col-xs-4">
+                  <button onclick="showUploadForm()" class="uploadFile"><i class="fas fa-cloud-upload-alt"></i></button>
+                </div> -->
                 </div>
               </div>
             </div>
         </div>
         <div class="form-popup none" id="myForm">
          <form class="form-container text-center">
-           <h3>Save</h3>
+           <h3>Save File</h3>
               <input type="text" class="form-control" placeholder="Enter file name" name="filename" id="fileToBeSaved" required>
            <div id="file-logo-operation">
             <span id = "operation"><i class="fa fa-paper-plane" onclick="saveFile()" aria-hidden="true"></i></span>
@@ -84,39 +92,24 @@
            </div>
          </form>
         </div>
-        <div class="form-popup none" id="myUploadForm" >
-         <form action="/upload" enctype="multipart/form-data"  method="post" class="form-container text-center">  
-                       <div id="close-button" onclick="closeUploadForm()"><i class="fa fa-times-circle"  aria-hidden="true"></i></div>
-          <div class="container mycontainerUpload" id="componentContent">
-            <div class="row justify-content-center vr">
-              <div class="col-sm">
-                  <h5>Analyze File</h5>
-             <hr>
-              </div> 
-            </div>
-
-            <div class="row justify-content-center vr">
-              <div class="col-sm">
-                 <p>You can upload a .wav file from here to get the analysis.</p>
-              </div> 
-            </div>
-           <div class="row justify-content-center" id="componentContentButtons">
-              <div class="col-sm">
-           <label class="btn btn-default browse">Browse <input type="file" name="file" hidden></label>   
-              </div>
-              <div class="col-sm">
-           <label class="btn btn-default upload">Upload <button hidden class="form-control submitButton" type="submit" value="upload"/></label>              
-              </div>
-            </div>
-
-           
-
-           
-
+        <div class="form-popup none" id="myUploadForm">
+         <form enctype="multipart/form-data" action="/upload" method="post" class="form-container    text-center">  
+           <h4>Analyze File</h4>
+           <hr>
+           <p>You can upload a .wav file from here to get the analysis.</p>
+           <input type="file" class="form-control" name="file1" />
+           <div class="row text-center">
+             <div class="col-xs-6 col-sm-6">
+              <input type="submit" value="upload">  
+              </input>
+             </div>
+             <div class="col-xs-6 col-sm-6"><span id = "uploadOperation"><i class="fa fa-times-circle" onclick="closeUploadForm()" aria-hidden="true"></i></span></div>
+           </div>
          </form>
         </div>
       </section>
     </main>
+
     <footer class="text-muted">
       <div class="container">
         <div align="center">  
@@ -126,9 +119,12 @@
         </div>
       </div>
     </footer>
-    <script src=main.js></script>
-    <script src="recorder.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   </body>
+  <script src=libopus.js></script>
+  <script src=opus.js></script>
+  <script src=handler.js></script>
+  <script src=main.js></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </html> 
